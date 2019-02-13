@@ -1,12 +1,48 @@
+// 混合
+({
+  "./foo.js": (function (module, exports) {
+    module.exports = {
+      name: 'zhy',
+      value: 'hello webpack',
+    };
+    export default {
+      name: 'zhy',
+      value: 'hello webpack',
+    };
+  }),
+  "./index.js": (function (module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+    __webpack_require__.r(__webpack_exports__);
+    var _foo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./foo.js");
+    var _foo__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(_foo__WEBPACK_IMPORTED_MODULE_0__);
+    const foo = require('./foo');
+    console.log(_foo__WEBPACK_IMPORTED_MODULE_0___default.a);
+    console.log('hi webpack~');
+  })
+});
+
+
 // es6 Module 模块化的处理
 ({
   "./foo.js": (function (module, __webpack_exports__, __webpack_require__) {
     "use strict";
-    eval("__webpack_require__.r(__webpack_exports__);\n// module.exports = {\n//   name: 'zhy',\n//   value: 'hello webpack',\n// };\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'zhy',\n  value: 'hello webpack',\n});\n\n//# sourceURL=webpack:///./foo.js?");
+    __webpack_require__.r(__webpack_exports__);
+    module.exports = {
+      name: 'zhy',
+      value: 'hello webpack',
+    };
+    __webpack_exports__["default"] = ({
+      name: 'zhy',
+      value: 'hello webpack'
+    });
   }),
   "./index.js": (function (module, __webpack_exports__, __webpack_require__) {
     "use strict";
-    eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _foo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./foo */ \"./foo.js\");\n// const foo = require('./foo');\n\n\nconsole.log(_foo__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\nconsole.log('hi webpack~');\n\n\n//# sourceURL=webpack:///./index.js?");
+    __webpack_require__.r(__webpack_exports__);
+    var _foo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./foo.js");
+    const foo = require('./foo');
+    console.log(_foo__WEBPACK_IMPORTED_MODULE_0__["default"]);
+    console.log('hi webpack~');
   })
 });
 
@@ -14,9 +50,14 @@
 // commonjs 模块化的处理
 ({
   "./foo.js": (function (module, exports) {
-    eval("module.exports = {\n  name: 'zhy',\n  value: 'hello webpack',\n};\n\n//# sourceURL=webpack:///./foo.js?");
+    module.exports = {
+      name: 'zhy',
+      value: 'hello webpack',
+    };
   }),
   "./index.js": (function (module, exports, __webpack_require__) {
-    eval("const foo = __webpack_require__(/*! ./foo */ \"./foo.js\");\n\nconsole.log(foo);\n\nconsole.log('hi webpack~');\n\n\n//# sourceURL=webpack:///./index.js?");
+    const foo = __webpack_require__("./foo.js");
+    console.log(foo);
+    console.log('hi webpack~');
   })
 });
