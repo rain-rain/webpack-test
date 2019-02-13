@@ -1,4 +1,5 @@
-const foo = require('./foo');
+// const foo = require('./foo');
+import foo from './foo';
 
 console.log(foo);
 
