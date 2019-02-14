@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Webpack = require('webpack');
 
 module.exports = {
   // mode: 'development',
@@ -14,9 +15,15 @@ module.exports = {
     filename: 'bundle.[hash].js',
   },
   module: {
-    rules: [{ test: /\.css$/, use: 'css-loader' }]
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader','css-loader']
+      }
+    ]
   },
   plugins: [
+    new Webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './index.html', // 模板文件          
       filename: 'index.html'
