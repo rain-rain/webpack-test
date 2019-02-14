@@ -1,6 +1,7 @@
 // const foo = require('./foo');
 import foo from './foo';
-import './css/base.css';
+import './css/base.less';
+// import './css/common.less';
 
 console.log(foo);
 
