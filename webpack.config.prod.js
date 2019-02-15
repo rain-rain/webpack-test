@@ -22,6 +22,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /src\/\.js$/,
+        use: 'babel-loader',
+      },
+      {
         test:/\.css/,
         use:[MiniCssExtractPlugin.loader,"css-loader",{
           loader: "postcss-loader",
