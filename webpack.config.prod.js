@@ -1,6 +1,8 @@
 const path = require('path')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin=require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const Webpack = require('webpack')
 
 
@@ -43,7 +45,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 1,
-            name: 'images/[name].[hash:8].[ext]',
+            name: '[name].[hash:8].[ext]',
             outputPath: "images/"
           }
         }]
@@ -61,6 +63,15 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin('prod/*.*', {
+      root: __dirname,
+      verbose: true,
+      dry: false
+    }),
+    new CopyWebpackPlugin([{
+      from: path.join(__dirname, './favicon.ico'),
+      to: path.join(__dirname, 'prod')
+    }]),
     new MiniCssExtractPlugin({
       filename: "[name].[chunkhash:8].css",
       chunkFilename: "[id].css"

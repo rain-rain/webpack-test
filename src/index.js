@@ -5,6 +5,6 @@ import './css/base.less';
 
 console.log(foo);
 
-console.log('hi webpack~');
+console.log('hello webpack~');
 
 document.write('<h2 class="border">hi webpack~</h2>')
