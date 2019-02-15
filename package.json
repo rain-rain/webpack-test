@@ -32,9 +32,10 @@
   },
   "dependencies": {
     "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
     "babel-polyfill": "^6.26.0",
-    "transform-runtime": "0.0.0",
-    "less": "^3.9.0"
+    "babel-preset-env": "^1.7.0",
+    "less": "^3.9.0",
+    "react": "^16.8.2",
+    "transform-runtime": "0.0.0"
   }
 }

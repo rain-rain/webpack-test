@@ -66,6 +66,26 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '-',
+      name: true,
+      cacheGroups: {
+        commons: {
+          name: "commons",
+          priority: 200,
+          minChunks: 2,
+        }
+      }
+    },
+    runtimeChunk: {
+      name: "manifest"
+    }
+  },
   plugins: [
     new CleanWebpackPlugin('prod/*.*', {
       root: __dirname,
