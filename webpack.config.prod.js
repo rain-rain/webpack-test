@@ -5,14 +5,14 @@ const Webpack = require('webpack')
 
 
 module.exports = {
-  mode: 'development',
+  // mode: 'development',
   // mode: 'production',
   // 这里是打包的入口文件(相对路径)
   entry: './src/index.js',
   output: {
     // 打包结果存放的位置(必须用绝对路劲)
-    path: path.resolve(__dirname, 'img'),
-    // publicPath: 'http://localhost:8080/',
+    path: path.resolve(__dirname, 'prod'),
+    publicPath: 'http://localhost:8000/',
     // path: path.resolve('/Users/rainzhao/collect/webpack/demo/1', 'dist'),
     // 打包结果文件名称
     filename: 'index.[hash:8].js',
@@ -40,10 +40,10 @@ module.exports = {
       {
         test: /\.(png|jpg|jpeg|gif)$/,
         use: [{
-          loader: 'file-loader',
+          loader: 'url-loader',
           options: {
-            name: '[name].[hash:8].[ext]',
-            publicPath: "./images/",
+            limit: 1,
+            name: 'images/[name].[hash:8].[ext]',
             outputPath: "images/"
           }
         }]
