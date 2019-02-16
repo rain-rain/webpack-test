@@ -1,5 +1,5 @@
 // 混合
-({
+(function(modules) {})({
   "./foo.js": (function (module, exports) {
     module.exports = {
       name: 'zhy',
@@ -23,7 +23,7 @@
 
 
 // es6 Module 模块化的处理
-({
+(function(modules) {})({
   "./foo.js": (function (module, __webpack_exports__, __webpack_require__) {
     "use strict";
     __webpack_require__.r(__webpack_exports__);
@@ -48,7 +48,7 @@
 
 
 // commonjs 模块化的处理
-({
+(function(modules) {})({
   "./foo.js": (function (module, exports) {
     module.exports = {
       name: 'zhy',
