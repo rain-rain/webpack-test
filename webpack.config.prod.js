@@ -75,10 +75,11 @@ module.exports = {
       automaticNameDelimiter: '-',
       name: true,
       cacheGroups: {
-        commons: {
-          name: "commons",
-          priority: 200,
-          minChunks: 2,
+        react: {
+          test: /react/,
+          name: "react",
+          priority: 1,
+          minChunks: 1,
         }
       }
     },
