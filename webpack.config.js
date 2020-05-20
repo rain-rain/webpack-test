@@ -16,6 +16,11 @@ module.exports = {
     // path: path.resolve('/Users/rainzhao/collect/webpack/demo/1', 'dist'),
     // 打包结果文件名称
     filename: 'index.[hash:8].js',
+    chunkFilename:'[name].[hash:8].js'
+  },
+  devServer: {
+    inline: true,  // 刷新浏览器
+    hot: true, // 重新加载改变的部分，HRM失败则刷新页面
   },
   module: {
     rules: [
