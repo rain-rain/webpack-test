@@ -18,6 +18,7 @@ module.exports = {
     // path: path.resolve('/Users/rainzhao/collect/webpack/demo/1', 'dist'),
     // 打包结果文件名称
     filename: 'index.[hash:8].js',
+    chunkFilename:'[name].js'
   },
   module: {
     rules: [
@@ -60,7 +61,7 @@ module.exports = {
           loader: 'html-loader',
           options: {
             attrs: ['img:src', 'img:data-src', 'audio:src'],
-            minimize: true
+            // minimize: true
           }
         }
       }
